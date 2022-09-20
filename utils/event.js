@@ -1,6 +1,6 @@
 const { events } = require('../constructor')
 
-// find event by name
+// finds event by name
 const getEventByName = (event_name) => {
   return events.find(({ name }) => name === event_name)
 }

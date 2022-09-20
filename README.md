@@ -1,7 +1,8 @@
 ## Install
 
-``bash
+```
 npm Install
+```
 
 ## Start server
 
@@ -15,7 +16,7 @@ You can see `Server is running on PORT 8080...`
 
 ## Description
 
-I have made mockup data as json file and saved it to `constants/Events.json`, `constants/Gamers.json`
+I have made mockup data as json file and saved it in `constants/Events.json`, `constants/Gamers.json`
 There are 10 events and 1000 gamers.
 
 ```
@@ -39,15 +40,15 @@ There are 10 events and 1000 gamers.
 ]
 ```
 
-I assumed each gamer can enter to each event and earn scores.
+I assumed each gamer can enter each event and earn scores.
 
 So I have made a constructor module (`constructor/index.js`) and update data per every 3 seconds. (`constructor/index.js`).
-After running server, event data will be updated.
+After running the server, event data will be updated.
 
-I have configured Mongodb, but didn't used it. It is just for future plan.
+I have configured Mongodb, but didn't used it. It is just for the future use.
 
 API has get method with event_name, view, page, sortOrder, size queries.
-It will return the data of gamers who have entered to the event with name as event_name.
+It will return the data of gamers who have entered the event with name as event_name.
 Data format:
 
 ```
@@ -66,8 +67,8 @@ Data format:
 }
 ```
 
-Profile pictures are saved on frontend side (public/avatarts) for now.
-Node server can upload images to frontend build path, so I used this path.
+Profile pictures are saved on frontend side (public/avatars) for now.
+Node server can upload images to frontend build path.
 
 API also will return some error responses (ex. 400, 500, 429 errors)
 

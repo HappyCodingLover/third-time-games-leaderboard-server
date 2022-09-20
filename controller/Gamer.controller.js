@@ -4,47 +4,47 @@ const getGamer = (req, res) => {
   try {
     const { event_name, view, page: _page, sortOrder, size } = req.query
 
-    // check event_name query
+    // validates event_name query
     if (!/^[A-Za-z]*$/.test(event_name)) {
       return res
         .status(400)
         .json({ status: 400, message: 'invalid event name' })
     }
 
-    // check page query
+    // validates page query
     if (!Number.isInteger(Number(_page)) && Number(_page) > 0) {
       return res.status(400).json({ status: 400, message: 'invalid page' })
     }
 
-    // check size query
+    // validates size query
     if (!Number.isInteger(Number(size)) && Number(size) > 0) {
       return res.status(400).json({ status: 400, message: 'invalid size' })
     }
 
-    // check view query
+    // validates view query
     if (view !== 'global' && view !== 'hundred') {
       return res.status(400).json({ status: 400, message: 'invalid view' })
     }
 
-    // check sortOrder query
+    // validates sortOrder query
     if (sortOrder !== '1' && sortOrder !== '-1') {
       return res
         .status(400)
         .json({ status: 400, message: 'invalid sortOrder value' })
     }
 
-    // get event
+    // gets event
     const event = getEventByName(event_name)
 
-    // calculate next page number
+    // calculates next page number
     const page = Number(_page)
     let nextPage = page + 1
 
     if (event) {
       let entities = []
-      // check event includes gamers with scores
+      // checks if event includes gamers with scores
       if (event.scores) {
-        // get gamers data with name, score, avatar
+        // gets gamers data with name, score, avatar
         entities = event.scores.map(({ gamer, score }) => {
           const { id, name, avatar } = gamer
           return {
@@ -55,10 +55,10 @@ const getGamer = (req, res) => {
           }
         })
 
-        // sort by score
+        // sorts by score
         entities.sort((a, b) => b.score - a.score)
 
-        // add rank
+        // adds rank
         entities = entities.map((entity, index) => ({
           ...entity,
           rank: index + 1,
