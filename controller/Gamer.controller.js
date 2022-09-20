@@ -4,9 +4,33 @@ const getGamer = (req, res) => {
   try {
     const { event_name, view, page: _page, sortOrder, size } = req.query
 
+    // check event_name query
+    if (!/^[A-Za-z]*$/.test(event_name)) {
+      return res
+        .status(400)
+        .json({ status: 400, message: 'invalid event name' })
+    }
+
     // check page query
     if (!Number.isInteger(Number(_page)) && Number(_page) > 0) {
       return res.status(400).json({ status: 400, message: 'invalid page' })
+    }
+
+    // check size query
+    if (!Number.isInteger(Number(size)) && Number(size) > 0) {
+      return res.status(400).json({ status: 400, message: 'invalid size' })
+    }
+
+    // check view query
+    if (view !== 'global' && view !== 'hundred') {
+      return res.status(400).json({ status: 400, message: 'invalid view' })
+    }
+
+    // check sortOrder query
+    if (sortOrder !== '1' && sortOrder !== '-1') {
+      return res
+        .status(400)
+        .json({ status: 400, message: 'invalid sortOrder value' })
     }
 
     // get event
@@ -18,7 +42,7 @@ const getGamer = (req, res) => {
 
     if (event) {
       let entities = []
-      // check if event includes gamers with scores
+      // check event includes gamers with scores
       if (event.scores) {
         // get gamers data with name, score, avatar
         entities = event.scores.map(({ gamer, score }) => {
@@ -62,8 +86,6 @@ const getGamer = (req, res) => {
           sort: sortOrder === '1' ? 1 : -1,
           nextPage: -1,
         })
-      } else {
-        return res.status(400).json({ status: 400, message: 'invalid view' })
       }
     } else {
       return res.status(400).json({ status: 400, message: 'no event' })

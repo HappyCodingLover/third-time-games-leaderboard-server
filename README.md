@@ -73,7 +73,7 @@ API also will return some error responses (ex. 400, 500, 429 errors)
 
 It will return 500 errors if the query values are incorrect.
 
-[http://localhost:8080/api/gamer?view=global&page=1&event_name=test&size=5&sortOrder=-1](http://localhost:8080/api/gamer?view=global&page=1&event_name=test&size=5&sortOrder=-1)
+[http://localhost:8080/api/v1/leaderboard?view=global&page=1&event_name=test&size=5&sortOrder=-1](http://localhost:8080/api/v1/leaderboard?view=global&page=1&event_name=test&size=5&sortOrder=-1)
 
 ```
 {
@@ -95,6 +95,6 @@ If you want to see this error in the current frontend, please refresh the page b
 
 ### Test case
 
-[http://localhost:8080/api/gamer?view=global&page=1&event_name=lacus&size=5&sortOrder=-1](http://localhost:8080/api/gamer?view=global&page=1&event_name=lacus&size=5&sortOrder=-1)
+[http://localhost:8080/api/v1/leaderboard?view=global&page=1&event_name=lacus&size=5&sortOrder=-1](http://localhost:8080/api/v1/leaderboard?view=global&page=1&event_name=lacus&size=5&sortOrder=-1)
 
-[http://localhost:8080/api/gamer?view=global&page=1&event_name=eros&size=5&sortOrder=-1](http://localhost:8080/api/gamer?view=global&page=1&event_name=eros&size=5&sortOrder=-1)
+[http://localhost:8080/api/v1/leaderboard?view=global&page=1&event_name=eros&size=5&sortOrder=-1](http://localhost:8080/api/v1/leaderboard?view=global&page=1&event_name=eros&size=5&sortOrder=-1)

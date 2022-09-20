@@ -4,7 +4,7 @@ const { getGamer } = require('./controller/Gamer.controller')
 const router = Router()
 
 // Gamer REST API
-router.get('/gamer', getGamer)
+router.get('/v1/leaderboard', getGamer)
 
 // Event REST API
 
