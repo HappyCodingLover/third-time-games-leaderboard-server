@@ -29,7 +29,7 @@ initEvents()
 
 setInterval(() => {
   updateEvents()
-}, 3000)
+}, 2000)
 
 const PORT = 8080
 app.listen(PORT, () => {

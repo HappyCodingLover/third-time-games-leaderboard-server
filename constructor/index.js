@@ -26,7 +26,7 @@ const updateEvents = () => {
   events.forEach((event) => {
     let { scores } = event
 
-    const uniqueNumbers = getUniqueRandomNumbers(100, 0, 1000)
+    const uniqueNumbers = getUniqueRandomNumbers(200, 0, 1000)
 
     uniqueNumbers.forEach((number) => {
       const gamer = Gamers[number]
