@@ -42,7 +42,7 @@ There are 10 events and 1000 gamers.
 
 I assumed each gamer can enter each event and earn scores.
 
-So I have made a constructor module (`constructor/index.js`) and update data per every 3 seconds. (`constructor/index.js`).
+So I have made a constructor module (`constructor/index.js`) and update data per every 2 seconds. (`constructor/index.js`).
 After running the server, event data will be updated.
 
 I have configured Mongodb, but didn't used it. It is just for the future use.
