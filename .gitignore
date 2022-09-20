@@ -1,0 +1,5 @@
+.env
+.env.example
+.env_sample
+/node_modules
+now.json
